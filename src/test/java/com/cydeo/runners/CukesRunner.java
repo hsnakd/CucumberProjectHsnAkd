@@ -10,7 +10,13 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features", // Right click-->Copy Path/Reference-->Path From Content Root
         glue = "com/cydeo/step_definitions",      // Right click-->Copy Path/Reference-->Path From Source Root
         dryRun = false,
-        tags = "@employee and not @librarian"     // or / and / and not
+        // true: It won't be running our step definitions codes.
+        // It will be running the snippets.
+        // It will be giving us snippets from feature files that we did not implement yet.
+        // false: If we already implement and everything is already ready in step definitions.
+
+        tags = "@Regression"
+        // or / and / and not ==> "@Regression and not @librarian"
 
 )
 public class CukesRunner {
