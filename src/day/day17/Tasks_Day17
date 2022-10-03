@@ -1,0 +1,68 @@
+        TC -1 #: Login scenario
+            1- Open a chrome browser
+            2- Go to: https://web-table-2.cydeo.com/login
+            3- Enter username: Test
+            4- Enter password: Tester
+            5- Verify URL:          Expected: URL should end with “orders”
+
+        Note: Follow POM
+
+        Try different ways of implementing this step:
+
+
+        TC #: Login scenario using maps/ alternative practice
+        Scenario: User should be able to see all 12 months in months dropdown
+        Given   User is on the login page of Web table app
+        When    User enters below credentials
+            | username | Test   |
+            | password | Tester |
+        Then    User should see url contains orders
+
+
+
+
+        TC-2#: Order place scenario
+            1- Given user is already logged in to web table app
+            2- When user is on the “Order” page
+            3- Then user enters appropriate test data
+                a. Product
+                b. Quantity
+                c. Customer name
+                d. Street
+                e. City
+                f. State
+                g. Zip
+                h. Payment info:
+                    i. Card type: Visa/MasterCard/American Express
+                    ii. Card No
+                    iii. Expire date
+            4- And user clicks to “Process Order”
+            5- Then user should see new order in the table on “View all orders” page
+
+        Note: Follow POM
+        #1- Parameterize scenario
+        #2- Scenario Outline after.
+
+
+
+
+
+
+        TC#6: Data tables task
+        https://practice.cydeo.com/dropdown
+        Scenario: User should be able to see all 12 months in months dropdown
+        Given   User is on the dropdowns page of practice tool
+        Then    User should see below info in month dropdown
+            | January |
+            | February |
+            | March |
+            | April |
+            | May |
+            | June |
+            | July |
+            | August |
+            | September |
+            | October |
+            | November |
+            | December |
+        Note: Follow POM and BDD approach

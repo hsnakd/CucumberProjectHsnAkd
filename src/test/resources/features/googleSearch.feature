@@ -13,16 +13,25 @@ Feature: Google search functionality
     Then user sees apple in the google title
 
 
-
   Scenario: Search functionality result title verification
     Given user is on Google search page
     When user types "apple" and clicks enter
     Then user sees "apple" in the google title
 
-  Scenario: Search functionality result title verification
+  Scenario Outline: Search functionality result title verification
     Given user is on Google search page
-    When user types "<apple>" and clicks enter
-    Then user sees "<apple>" in the google title
+    When user types "<searchValue>" and clicks enter
+    Then user sees "<result>" in the google title
+    Examples:
+      |searchValue  |result   |
+      |Turkey       |Turkey   |
+      |USA          |USA      |
+      |Ukraine      |Ukraine  |
+      |Germany      |Germany  |
+      |UK           |UK       |
+      |Latvia       |Latvia   |
+      |Greece       |Greece   |
+
 
   Scenario: Data Driven Testing Format preparation
     Given user is on Google search page
