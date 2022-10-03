@@ -1,0 +1,26 @@
+        TC#1: Google Search Functionality Title Verification
+            1. User is on Google search page
+            2. User types apple in the google search box and clicks enter
+            3. User sees apple is in the google title
+        Note: Follow POM
+
+        TC#2: Wikipedia Search Functionality Title Verification
+            1. User is on Wikipedia home page
+            2. User types Steve Jobs in the wiki search box
+            3. User clicks wiki search button
+            4. User sees Steve Jobs is in the wiki title
+        Note: Follow POM
+
+        TC#3: Wikipedia Search Functionality Header Verification
+            1. User is on Wikipedia home page
+            2. User types Steve Jobs in the wiki search box
+            3. User clicks wiki search button
+            4. User sees Steve Jobs is in the main header
+        Note: Follow POM
+
+        TC#4: Wikipedia Search Functionality Image Header Verification
+            1. User is on Wikipedia home page
+            2. User types Steve Jobs in the wiki search box
+            3. User clicks wiki search button
+            4. User sees Steve Jobs is in the image header
+        Note: Follow POM

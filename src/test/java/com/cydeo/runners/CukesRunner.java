@@ -7,15 +7,24 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = "html:target/cucumber-report.html",
-        features = "src/test/resources/features", // Right click-->Copy Path/Reference-->Path From Content Root
-        glue = "com/cydeo/step_definitions",      // Right click-->Copy Path/Reference-->Path From Source Root
+        features = "src/test/resources/features",
+        // Right click-->Copy Path/Reference-->Path From Content Root
+        // feature : where we pass feature files path
+
+        glue = "com/cydeo/step_definitions",
+        // Right click-->Copy Path/Reference-->Path From Source Root
+        // glue : where we pass step_definitions path
+
         dryRun = false,
-        // true: It won't be running our step definitions codes.
+        // if false: If we already implement and everything is already ready in step definitions.
+        // executing the step definitions
+
+        // if true: It won't be running our step definitions codes /  not executing the step definitions
         // It will be running the snippets.
         // It will be giving us snippets from feature files that we did not implement yet.
-        // false: If we already implement and everything is already ready in step definitions.
 
-        tags = "@Regression"
+
+        tags = "@wip"
         // or / and / and not ==> "@Regression and not @librarian"
 
 )
