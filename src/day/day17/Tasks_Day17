@@ -34,9 +34,9 @@
                 g. Zip
                 h. Payment info:
                     i. Card type: Visa/MasterCard/American Express
-                    ii. Card Nuser enters password {string}o
+                    ii. Card No
                     iii. Expire date
-      arg0      4- And user clicks to “Process Order”
+            4- And user clicks to “Process Order”
             5- Then user should see new order in the table on “View all orders” page
 
         Note: Follow POM
@@ -47,9 +47,8 @@
 
 
 
-
         TC#6: Data tables task
-        https://practice.cydeo.com/dropdown
+        https://parg0ractice.carg1ydeo.com/dropdown
         Scenario: User should be able to see all 12 months in months dropdown
         Given   User is on the dropdowns page of practice tool
         Then    User should see below info in month dropdown
