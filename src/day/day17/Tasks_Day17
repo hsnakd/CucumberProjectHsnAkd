@@ -34,9 +34,9 @@
                 g. Zip
                 h. Payment info:
                     i. Card type: Visa/MasterCard/American Express
-                    ii. Card No
+                    ii. Card Nuser enters password {string}o
                     iii. Expire date
-            4- And user clicks to “Process Order”
+      arg0      4- And user clicks to “Process Order”
             5- Then user should see new order in the table on “View all orders” page
 
         Note: Follow POM

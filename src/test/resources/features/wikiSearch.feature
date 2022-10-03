@@ -31,14 +31,16 @@ Feature: Wikipedia search functionality and verifications
     And User clicks wiki search button
     Then User sees "<expectedTitle>" is in the wiki title
     Then User sees "<expectedMainHeader>" is in the main header
-    Then User sees "<expectedImageHeader>" is in the image header
+  # Then User sees "<expectedImageHeader>" is in the image header
 
     @soccerPlayers
     Examples: search values we are going to be using in this scenario is as below
       | searchValue       | expectedTitle     | expectedMainHeader | expectedImageHeader |
+      | Lionel Messi      | Lionel Messi      | Lionel Messi       | Lionel Messi        |
       | Steve Jobs        | Steve Jobs        | Steve Jobs         | Steve Jobs          |
       | Cristiano Ronaldo | Cristiano Ronaldo | Cristiano Ronaldo  | Cristiano Ronaldo   |
       | Bob Marley        | Bob Marley        | Bob Marley         | Bob Marley          |
+      | Erling Haaland    | Erling Haaland    | Erling Haaland     | Erling Haaland      |
       | Chuck Norris      | Chuck Norris      | Chuck Norris       | Chuck Norris        |
       | Antony Hopkins    | Antony Hopkins    | Antony Hopkins     | Antony Hopkins      |
 

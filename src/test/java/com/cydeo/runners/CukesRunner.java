@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
         // It will be giving us snippets from feature files that we did not implement yet.
 
 
-        tags = "@scenarioOutline"
+        tags = "@wip"
         // or / and / and not ==> "@Regression and not @librarian"
 
 )
