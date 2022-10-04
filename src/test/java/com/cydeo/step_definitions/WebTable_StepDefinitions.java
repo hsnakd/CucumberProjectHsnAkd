@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class WebTable_StepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
 
@@ -46,14 +48,26 @@ public class WebTable_StepDefinitions {
 
     @When("user enters username {string} password {string} and logins")
     public void user_enters_username_password_and_logins(String username, String password) {
-        webTableLoginPage.inputUsername.sendKeys(username);
-        webTableLoginPage.inputPassword.sendKeys(password);
-        webTableLoginPage.loginButton.click();
+    //    webTableLoginPage.inputUsername.sendKeys(username);
+    //    webTableLoginPage.inputPassword.sendKeys(password);
+    //    webTableLoginPage.loginButton.click();
 
-    //    webTableLoginPage.login(username, pw);
-
+    //    webTableLoginPage.login();
+        webTableLoginPage.login(username, password);
+    //    webTableLoginPage.loginWithConfig();
     }
 
+
+    @When("user enters below credentials")
+    public void user_enters_below_credentials(Map<String, String> credentials) {
+
+//        webTableLoginPage.inputUsername.sendKeys(credentials.get("username"));
+//        webTableLoginPage.inputPassword.sendKeys(credentials.get("password"));
+//        webTableLoginPage.loginButton.click();
+
+        //we can call our login utility method and pass values from map
+        webTableLoginPage.login(credentials.get("username"), credentials.get("password"));
+    }
 
 
 

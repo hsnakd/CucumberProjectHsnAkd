@@ -29,7 +29,7 @@ public class WebTableLoginPage {
      * Password: Tester
      */
     public void login(){
-        this.inputUsername.sendKeys("Test");
+        this.inputUsername.sendKeys("Test");    // this. ==> it is not necessary
         this.inputPassword.sendKeys("Tester");
         this.loginButton.click();
     }
