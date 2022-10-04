@@ -260,7 +260,6 @@ for given duration
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + by);
-
         }
     }
 
@@ -275,7 +274,6 @@ for given duration
             Assert.assertFalse("Element should not be visible: " + by, Driver.getDriver().findElement(by).isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
-
         }
     }
 
@@ -292,7 +290,6 @@ for given duration
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + element);
-
         }
     }
 
@@ -305,7 +302,7 @@ for given duration
     public static void waitForStaleElement(WebElement element) {
         int y = 0;
         while (y <= 15) {
-            if (y == 1)
+            if (y == 1) {
                 try {
                     element.isDisplayed();
                     break;
@@ -324,6 +321,7 @@ for given duration
                         e.printStackTrace();
                     }
                 }
+            }
         }
     }
 
@@ -421,7 +419,6 @@ for given duration
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command, element);
-
     }
 
     /**
@@ -432,7 +429,6 @@ for given duration
     public static void executeJScommand(String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command);
-
     }
 
 
