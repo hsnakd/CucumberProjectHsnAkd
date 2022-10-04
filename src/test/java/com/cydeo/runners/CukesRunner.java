@@ -6,7 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "html:target/cucumber-report.html",
+        plugin = {  "html:target/cucumber-report.html",
+                    "rerun:target/rerun.txt"
+        },
+
         features = "src/test/resources/features",
         // Right click-->Copy Path/Reference-->Path From Content Root
         // feature : where we pass feature files path
@@ -24,7 +27,7 @@ import org.junit.runner.RunWith;
         // It will be giving us snippets from feature files that we did not implement yet.
 
 
-        tags = "@wip"
+        tags = "@femaleScientists"
         // or / and / and not ==> "@Regression and not @librarian"
 
 )
