@@ -6,8 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {  "html:target/cucumber-report.html",
-                    "rerun:target/rerun.txt"
+        plugin = {
+                //"pretty",
+                "html:target/cucumber-report.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber",
         },
 
         features = "src/test/resources/features",
@@ -27,8 +30,10 @@ import org.junit.runner.RunWith;
         // It will be giving us snippets from feature files that we did not implement yet.
 
 
-        tags = "@femaleScientists"
+        tags = "@wip"
         // or / and / and not ==> "@Regression and not @librarian"
+        
+//        publish = false
 
 )
 public class CukesRunner {
