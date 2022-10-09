@@ -14,6 +14,12 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
+    /**
+     Hooks:
+        - Hooks are used to create pre- and post- condition for ALL scenarios in our project.
+        - Since Hooks effect the whole project, we should be very selective on what to put in the hooks.
+     */
+
     //import from io.cucumber.java not from junit
     //@Before (order = 1)
     public void setupScenario(){

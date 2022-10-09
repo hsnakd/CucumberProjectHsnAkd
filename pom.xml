@@ -17,24 +17,24 @@
         <!-- https://cucumber.io/docs/guides/parallel-execution/?lang=java -->
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <groupId>org.apache.maven.plugins</groupId>     <!--THE COMPANY NAME   -->
+                <artifactId>maven-surefire-plugin</artifactId>  <!-- PROJECT NAME  -->
+                <version>3.0.0-M5</version>                     <!--VERSION OF THE PLUGIN   -->
 
-                <configuration>
-                    <parallel>methods</parallel>
+                <configuration>                                 <!-- We provide addition configurations  -->
+                    <parallel>methods</parallel>                <!--We run .feature files in parallel   -->
                     <!-- Runs the Scenarios in parallel with Runner Classes
                     <parallel>classes</parallel>
                      -->
                        <!--
                        <useUnlimitedThreads>true</useUnlimitedThreads>
                        -->
-                    <threadCount>4</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <threadCount>4</threadCount>                <!-- How many threads we want to generate  -->
+                    <perCoreThreadCount>false</perCoreThreadCount><!--   -->
+                    <testFailureIgnore>true</testFailureIgnore> <!-- Will not stop if a test fails  -->
 
                     <includes>
-                        <include>**/CukesRunner*.java</include>
+                        <include>**/CukesRunner*.java</include> <!--when we use "mvn test" lifecycle, it will find the .java class that has the name contains "CukesRunner"   -->
                     </includes>
 
                 </configuration>

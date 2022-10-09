@@ -7,6 +7,8 @@ Feature: Library app login feature
   Accounts are: librarian, student, admin
 
   Background:  For the scenarios in the feature file, user is expected to be on login page
+    #    - Background is used to re-use the steps that are common in the same FEATURE FILE.
+    #    - The steps we pass under background is only effective for the scenarios in the same feature file.
     Given user is on the library login page
 
   @librarian @employee
