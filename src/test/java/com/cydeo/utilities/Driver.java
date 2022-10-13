@@ -8,10 +8,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -72,18 +75,31 @@ public class Driver {
 
                 case "chromeIncognito":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
-                    DesiredCapabilities cap = new DesiredCapabilities();
-                    cap.setCapability(ChromeOptions.CAPABILITY, options);
-                    options.merge(cap);
-                    driverPool.set(new ChromeDriver(options));
+                    ChromeOptions optionsChrome = new ChromeOptions();
+                    optionsChrome.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
+//                    DesiredCapabilities capChrome = new DesiredCapabilities();
+//                    capChrome.setCapability(ChromeOptions.CAPABILITY, optionsChrome);
+//                    optionsChrome.merge(capChrome);
+                    driverPool.set(new ChromeDriver(optionsChrome));
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
-
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+
+                case "firefoxPrivate":
+                    WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions optionsFirefox = new FirefoxOptions();
+                    optionsFirefox.addArguments("-private");  // FirefoxOptions for starting firefox in incognito mode
+//                    DesiredCapabilities capFirefox = new DesiredCapabilities();
+//                    capFirefox.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsFirefox);
+//                    optionsFirefox.merge(capFirefox);
+                    driverPool.set(new FirefoxDriver(optionsFirefox));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
