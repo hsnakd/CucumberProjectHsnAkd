@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.DropdownsPage;
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,6 +28,26 @@ public class DataTable_StepDefinitions {
 
     @Given("User is on the dropdowns page of practice tool")
     public void user_is_on_the_dropdowns_page_of_practice_tool() {
+        /** Q: How to change environment withing maven command for test execution?
+        String environment = System.getProperty("environment");
+        if (environment != null) {
+            switch (environment) {
+                case "qa":
+                    Driver.getDriver().get("http://qa1.vytrack.com");
+                    break;
+                case "dev":
+                    Driver.getDriver().get("http://dev.vytrack.com");
+                    break;
+                case "stage":
+                    Driver.getDriver().get("http://stage.vytrack.com");
+                    break;
+            }
+        } else {
+            String url = ConfigurationReader.getProperty("environment");
+            Driver.getDriver().get(url);
+        }
+         */
+
         Driver.getDriver().get("https://practice.cydeo.com/dropdown");
     }
 

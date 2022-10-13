@@ -2,9 +2,12 @@ package com.cydeo.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -43,7 +46,16 @@ public class Driver {
             This way, we can control which browser is opened from outside our code, from configuration.properties.
              */
             String browserType = ConfigurationReader.getProperty("browser");
+/**
 
+            if (driverPool.get() == null) {
+                if (System.getProperty("BROWSER") == null) {
+                    browserType = ConfigurationReader.getProperty("browser");
+                } else {
+                    browserType = System.getProperty("BROWSER");
+                }
+                System.out.println("Browser: " + browserType);
+ */
 
             /*
                 Depending on the browserType that will be return from configuration.properties file
@@ -66,17 +78,40 @@ public class Driver {
                     break;
 
                 case "safari":
+                    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                        throw new WebDriverException("Your operating system does not support the requested browser");
+                    }
                     WebDriverManager.safaridriver().setup();
                     driverPool.set(new SafariDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
 
+                case "ie":
+                    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+                        throw new WebDriverException("Your operating system does not support the requested browser");
+                    }
+                    WebDriverManager.iedriver().setup();
+                    driverPool.set(new InternetExplorerDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+
+                case "edge":
+                    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+                        throw new WebDriverException("Your operating system does not support the requested browser");
+                    }
+                    WebDriverManager.edgedriver().setup();
+                    driverPool.set(new EdgeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+
                 case "remote-chrome":
-                    // assign your grid server address
-                    String gridAdress = "54.89.242.106"; // put your own Linux grid IP here
+                    // assign your grid server address : 3.86.235.137
+                    String gridAddress = "54.89.242.106"; // put your own Linux grid IP here
                     try {
-                        URL url = new URL("http://"+gridAdress+":4444/wd/hub");
+                        URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
                         driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
