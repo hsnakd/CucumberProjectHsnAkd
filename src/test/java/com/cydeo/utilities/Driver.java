@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -63,12 +64,22 @@ public class Driver {
             */
             switch (browserType){
                 case "chrome":
-
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
+
+                case "chromeIncognito":
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
+                    DesiredCapabilities cap = new DesiredCapabilities();
+                    cap.setCapability(ChromeOptions.CAPABILITY, options);
+                    options.merge(cap);
+                    driverPool.set(new ChromeDriver(options));
+                    break;
+
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
