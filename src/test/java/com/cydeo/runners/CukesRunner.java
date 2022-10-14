@@ -12,7 +12,9 @@ import org.junit.runner.RunWith;
 
                 "html:target/cucumber-report.html",             // this generates default cucumber html report
                 "rerun:target/rerun.txt",                       // this generates rerun.txt for keep tracking of failed tests
-                "me.jvt.cucumber.report.PrettyReports:target/cucumber"  // this plugin generates the "MAVEN CUCUMBER REPORTING"
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber",  // this plugin generates the "MAVEN CUCUMBER REPORTING"
+                "json:target/cucumber.json",                    //
+                "junit:target/junit/junit-report.xml",          //
         },
                         /**
                                 #pluginS :
@@ -46,7 +48,7 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "@soccerPlayers"
+        tags = ""
         // or / and / and not ==> "@Regression and not @librarian"
 
                         /**

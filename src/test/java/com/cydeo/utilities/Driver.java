@@ -59,7 +59,7 @@ public class Driver {
                     browserType = System.getProperty("BROWSER");
                 }
                 System.out.println("Browser: " + browserType);
- */
+*/
 
             /*
                 Depending on the browserType that will be return from configuration.properties file
@@ -77,9 +77,9 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions optionsChrome = new ChromeOptions();
                     optionsChrome.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
-//                    DesiredCapabilities capChrome = new DesiredCapabilities();
-//                    capChrome.setCapability(ChromeOptions.CAPABILITY, optionsChrome);
-//                    optionsChrome.merge(capChrome);
+                    DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
+                    capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, optionsChrome);
+                    optionsChrome.merge(capabilitiesChrome);
                     driverPool.set(new ChromeDriver(optionsChrome));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -96,9 +96,9 @@ public class Driver {
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions optionsFirefox = new FirefoxOptions();
                     optionsFirefox.addArguments("-private");  // FirefoxOptions for starting firefox in incognito mode
-//                    DesiredCapabilities capFirefox = new DesiredCapabilities();
-//                    capFirefox.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsFirefox);
-//                    optionsFirefox.merge(capFirefox);
+                    DesiredCapabilities capabilitiesFirefox = new DesiredCapabilities();
+                    capabilitiesFirefox.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsFirefox);
+                    optionsFirefox.merge(capabilitiesFirefox);
                     driverPool.set(new FirefoxDriver(optionsFirefox));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
