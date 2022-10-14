@@ -1,3 +1,4 @@
+@wikiSearch
 Feature: Wikipedia search functionality and verifications
   Agile story: As a user, when I am on the Wiki search page
   I should be able to search whatever I want and see relevant information
