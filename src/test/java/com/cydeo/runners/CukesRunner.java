@@ -48,7 +48,7 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "webTableOrder"
+        tags = "@scientists"
         // or / and / and not ==> "@Regression and not @librarian"
 
                         /**
@@ -81,6 +81,7 @@ public class CukesRunner {
 
 //      We can run our project using some maven commands from outside our intelliJ using the line below:
 //      Gear icon ==> Run Anything... ==> mvn test -Dcucumber.filter.tags=@smoke
+//                                    ==> mvn test -DBROWSER=firefox
 //      -D - used to specify some parameters
 //      cucumber.filter.tags - used to override tags specifications in Test runner class.
 //      https://cucumber.io/docs/cucumber/api/?sbsearch=dcucumber&lang=java

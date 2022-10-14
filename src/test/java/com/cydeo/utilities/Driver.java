@@ -49,22 +49,22 @@ public class Driver {
             We read our browserType from configuration.properties.
             This way, we can control which browser is opened from outside our code, from configuration.properties.
              */
-            String browserType = ConfigurationReader.getProperty("browser");
-/**
+            String browserType;
+/**            browserType = ConfigurationReader.getProperty("browser");         */
 
-            if (driverPool.get() == null) {
                 if (System.getProperty("BROWSER") == null) {
                     browserType = ConfigurationReader.getProperty("browser");
                 } else {
                     browserType = System.getProperty("BROWSER");
                 }
                 System.out.println("Browser: " + browserType);
-*/
+
 
             /*
                 Depending on the browserType that will be return from configuration.properties file
                 switch statement will determine the case, and open the matching browser
             */
+
             switch (browserType){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -147,7 +147,7 @@ public class Driver {
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
-                 break;
+                    break;
 
                 case "saucelab-chrome":
                     try{
@@ -160,8 +160,8 @@ public class Driver {
                     }catch (MalformedURLException e){
                         e.printStackTrace();
                     }
+                    break;
 
-            break;
                 case "saucelab-edge":
                     EdgeOptions browserOptions = new EdgeOptions();
                     browserOptions.setCapability("platformName", "Windows 11");
