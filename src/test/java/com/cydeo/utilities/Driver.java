@@ -61,7 +61,6 @@ public class Driver {
                 }
                 System.out.println("Browser: " + browserType);
 
-
             /*
                 Depending on the browserType that will be return from configuration.properties file
                 switch statement will determine the case, and open the matching browser
