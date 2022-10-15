@@ -48,7 +48,7 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "@smoke"
+        tags = "@scientists"
         // or / and / and not ==> "@Regression and not @librarian"
 
                         /**

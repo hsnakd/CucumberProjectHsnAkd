@@ -28,27 +28,7 @@ public class DataTable_StepDefinitions {
     @Given("User is on the dropdowns page of practice tool")
     public void user_is_on_the_dropdowns_page_of_practice_tool() {
 
-        /**       Driver.getDriver().get("https://practice.cydeo.com/dropdown");        */
-
-        String environment = System.getProperty("environment");
-
-        if (environment != null) {
-            switch (environment) {
-                case "qa":
-                    Driver.getDriver().get("https://practice.cydeo.com/dropdown");
-                    break;
-                case "dev":
-                    Driver.getDriver().get("http://dev.vytrack.com");
-                    break;
-                case "stage":
-                    Driver.getDriver().get("http://stage.vytrack.com");
-                    break;
-            }
-        } else {
-            String url = ConfigurationReader.getProperty("environment");
-            Driver.getDriver().get(url);
-        }
-
+        Driver.getDriver().get("https://practice.cydeo.com/dropdown");
     }
 
     @Then("User should see below info in month dropdown")

@@ -17,6 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+import org.openqa.selenium.support.How;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -25,6 +26,32 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
+
+    public static WebDriver environmentMethod(String environment){
+//        Change environment within maven command for test execution
+
+        String env = System.getProperty("environment");
+
+        if (env != null) {
+            switch (env) {
+                case "qa":
+                    Driver.getDriver().get("http://qa.vytrack.com");
+                    break;
+                case "dev":
+                    Driver.getDriver().get("http://dev.vytrack.com");
+                    break;
+                case "stage":
+                    Driver.getDriver().get("http://stage.vytrack.com");
+                    break;
+            }
+        } else {
+            String url = environment;
+//            String url = ConfigurationReader.getProperty("environment");
+            Driver.getDriver().get(url);
+        }
+
+        return null;
+    }
 
     /*
     Creating a private constructor, so we are closing

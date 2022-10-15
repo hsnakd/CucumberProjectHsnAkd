@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.GoogleSearchPage;
 import com.cydeo.pages.WikiSearchPage;
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -16,6 +17,8 @@ public class Wiki_StepDefinitions {
 
     @Given("User is on Wikipedia home page")
     public void userIsOnWikipediaHomePage() {
+//        Driver.environmentMethod("https://en.wikipedia.org");
+//        Driver.environmentMethod(ConfigurationReader.getProperty("environment"));
         Driver.getDriver().get("https://en.wikipedia.org");
     }
 
