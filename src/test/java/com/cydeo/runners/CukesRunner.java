@@ -83,7 +83,7 @@ public class CukesRunner {
 //      Gear icon ==> Run Anything...
 //          ==> mvn test -Dcucumber.filter.tags=@smoke
 //          ==> mvn test -DBROWSER=firefox
-//          ==>     test -Denvironment="qa" -Dbrowser="chrome" -DclassName=TestRunner23
+//          ==> mvn test -Denvironment="qa" -DBROWSER="chrome" -DclassName=DataTable_StepDefinitions
 
 
 //      -D - used to specify some parameters

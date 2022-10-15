@@ -9,6 +9,7 @@ import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
+import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -67,6 +68,7 @@ public class Hooks {
     public void afterStep(){
         System.out.println("--------> applying tearDown using @AfterStep");
     }
+
 
 
 }
