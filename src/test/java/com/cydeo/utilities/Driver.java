@@ -102,19 +102,23 @@ public class Driver {
 
                 case "chromeIncognito":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions optionsChrome = new ChromeOptions();
-                    optionsChrome.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
                     DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
-                    capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, optionsChrome);
-                    optionsChrome.merge(capabilitiesChrome);
-                    driverPool.set(new ChromeDriver(optionsChrome));
+                    capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                    chromeOptions.merge(capabilitiesChrome);
+                    driverPool.set(new ChromeDriver(chromeOptions));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
 
+//                DesiredCapabilities - a class that is used for Webdriver configuration.
+//                Based on the property "browserName" Selenium Grid knows which browser you want to use for testing.
+//                We can also specify the platform, version, browser version, and other parameters for testing.
+
                 case "remote-chrome":
-                    // assign your grid server address : 54.89.242.106   ==> 3.83.105.72 ==> 184.72.110.69
                     try {
+                        // assign your grid server address : 54.89.242.106  ==> 184.72.110.69
                         String gridAddress = "3.83.105.72"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -165,8 +169,8 @@ public class Driver {
                     break;
 
                 case "remote-firefox":
-                    // assign your grid server address : 54.89.242.106
                     try {
+                    // assign your grid server address : 54.89.242.106
                         String gridAddress = "3.83.105.72"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
