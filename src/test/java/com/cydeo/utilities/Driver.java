@@ -49,7 +49,6 @@ public class Driver {
 //            String url = ConfigurationReader.getProperty("environment");
             Driver.getDriver().get(url);
         }
-
         return null;
     }
 
@@ -114,10 +113,9 @@ public class Driver {
                     break;
 
                 case "remote-chrome":
-                    // assign your grid server address : 54.89.242.106
-
+                    // assign your grid server address : 54.89.242.106   ==> 3.83.105.72 ==> 184.72.110.69
                     try {
-                        String gridAddress = "184.72.110.69"; // put your own Linux grid IP here
+                        String gridAddress = "3.83.105.72"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
@@ -169,7 +167,7 @@ public class Driver {
                 case "remote-firefox":
                     // assign your grid server address : 54.89.242.106
                     try {
-                        String gridAddress = "184.72.110.69"; // put your own Linux grid IP here
+                        String gridAddress = "3.83.105.72"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("firefox");
