@@ -48,7 +48,7 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "@order"
+        tags = "@vyTrack",
         // or / and / and not ==> "@Regression and not @librarian"
 
                         /**
@@ -67,8 +67,7 @@ import org.junit.runner.RunWith;
                                 - if a scenario has @c tag, it will NOT be executed.
                         */
 
-
-        // publish = false
+        publish = true
         /*
         publish = true;
                 --> will enable a functionality from cucumber to generate a public link for the report of our final execution of our code
