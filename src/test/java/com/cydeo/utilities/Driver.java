@@ -85,14 +85,14 @@ public class Driver {
                 } else {
                     browserType = System.getProperty("BROWSER");
                 }
-                System.out.println("Browser: " + browserType);
+                System.out.println("Browser Type : " + browserType);
 
             /*
                 Depending on the browserType that will be return from configuration.properties file
                 switch statement will determine the case, and open the matching browser
             */
 
-            switch (browserType){
+            switch (browserType.toLowerCase()){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
@@ -100,7 +100,7 @@ public class Driver {
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
 
-                case "chromeIncognito":
+                case "chrome-incognito":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
@@ -156,7 +156,7 @@ public class Driver {
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
 
-                case "firefoxPrivate":
+                case "firefox-private":
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions optionsFirefox = new FirefoxOptions();
                     optionsFirefox.addArguments("-private");  // FirefoxOptions for starting firefox in incognito mode
