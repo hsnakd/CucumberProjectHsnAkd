@@ -28,7 +28,7 @@ public class VyTrackLogin_StepDefinitions {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("vytrack.url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl"));
     }
 
 
@@ -69,7 +69,6 @@ public class VyTrackLogin_StepDefinitions {
                 dashboardPage.fullName.click();
                 dashboardPage.logoutLink.click();
 
-
             }
                 FileOutputStream out = new FileOutputStream(filePath);
                 workbook.write(out);
@@ -78,6 +77,63 @@ public class VyTrackLogin_StepDefinitions {
                 out.close();
                 workbook.close();
 
-
         }
+
+    @When("user enters driver credentials")
+    public void userEntersDriverCredentials() throws IOException {
+        String path = "src/test/resources/source/VyTrackQa2Users.xlsx";
+        FileInputStream fis = new FileInputStream(path);
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+        XSSFSheet sheet = workbook.getSheet("vyTrack1");
+        String username = sheet.getRow(0).getCell(0).toString();
+        String password = sheet.getRow(0).getCell(1).toString();
+        loginPage.loginUsername.sendKeys(username);
+        loginPage.loginPassword.sendKeys(password);
+        loginPage.loginButton.click();
+    }
+
+    @Then("user should see driver navigation options")
+    public void userShouldSeeDriverNavigationOptions(List<String> menuOps) {
+        List<String> actualOps = new ArrayList<>();
+        for (WebElement menu : dashboardPage.menus) {
+            actualOps.add(menu.getText());
+        }
+        Assert.assertEquals(menuOps,actualOps);
+    }
+
+    @When("user enters {string} information")
+    public void userEntersInformation(String string) throws IOException {
+        String path = "src/test/resources/source/VyTrackQa2Users.xlsx";
+        FileInputStream fis = new FileInputStream(path);
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+        XSSFSheet sheet = workbook.getSheet("vyTrack1");
+        String username = "";
+        String password = "";
+
+
+        switch (string){
+            case "Sales":
+                username = sheet.getRow(10).getCell(0).toString();
+                password = sheet.getRow(10).getCell(1).toString();
+                break;
+
+            case "Store":
+                username = sheet.getRow(6).getCell(0).toString();
+                password = sheet.getRow(6).getCell(1).toString();
+                break;
+        }
+
+        loginPage.loginUsername.sendKeys(username);
+        loginPage.loginPassword.sendKeys(password);
+        loginPage.loginButton.click();
+    }
+
+    @Then("user should see manager navigation options")
+    public void userShouldSeeManagerNavigationOptions(List<String> menuOps) {
+        List<String> actualOps = new ArrayList<>();
+        for (WebElement menu : dashboardPage.menus) {
+            actualOps.add(menu.getText());
+        }
+        Assert.assertEquals(menuOps,actualOps);
+    }
 }
