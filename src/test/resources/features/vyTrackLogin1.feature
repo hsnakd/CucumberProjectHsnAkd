@@ -1,4 +1,4 @@
-@vyTrack
+@vyTrack1
 Feature: VyTrack App login with different roles
 
 
@@ -32,7 +32,3 @@ Feature: VyTrack App login with different roles
     |Sales|
     |Store|
 
-@vyTrack2
-    Scenario: verify log in with multiple credentials
-      When user is on the login page
-      Then check  the credentials and write pass or fail

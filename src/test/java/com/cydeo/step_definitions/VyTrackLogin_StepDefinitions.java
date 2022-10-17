@@ -28,13 +28,20 @@ public class VyTrackLogin_StepDefinitions {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl1"));
+    }
+
+    @When("user is on the second login page")
+    public void user_is_on_the_second_login_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl2"));
+
     }
 
 
     @Then("check  the credentials and write pass or fail")
     public void checkTheCredentialsAndWritePassOrFail() throws IOException {
-            String filePath = "src/test/resources/source/VyTrackQa2Users.xlsx";
+
+        String filePath = "src/test/resources/source/VyTrackQa2Users.xlsx";
             FileInputStream in = new FileInputStream(filePath);
             XSSFWorkbook workbook = new XSSFWorkbook(in);
             XSSFSheet sheet = workbook.getSheet("vyTrack");
@@ -136,4 +143,8 @@ public class VyTrackLogin_StepDefinitions {
         }
         Assert.assertEquals(menuOps,actualOps);
     }
+
+
 }
+
+
