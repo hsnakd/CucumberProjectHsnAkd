@@ -35,6 +35,7 @@ Feature: Wikipedia search functionality and verifications
   # Then User sees "<expectedImageHeader>" is in the image header
 
 
+
     @soccerPlayers @smoke
     Examples: search values we are going to be using in this scenario is as below
       | searchValue       | expectedTitle     | expectedMainHeader | expectedImageHeader |
