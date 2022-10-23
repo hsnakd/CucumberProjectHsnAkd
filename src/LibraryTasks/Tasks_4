@@ -1,0 +1,17 @@
+TC #4: Task summary:
+1- Create new scenario in “LoginWithParameters.feature” named:
+“Login as librarian in the same line”
+2- Implement the same logic you created before. But you should
+handle login in one scenario step
+3- Create new snippets and implement them in
+“Login_StepDefinitions” class and implement these 2 scenarios.
+Note: Follow POM for any web element locating in any page.
+Scenario for Task4
+Scenario: Login as librarian same line
+Given I am on the login page
+When I login using "librarian1@library" and
+"qU9mrvur"
+Then dashboard should be displayed
+And there should be 23 'users'
+#number can be whatever you have there
+Expected “23” is symbolic number. This can change. Verify as what number you see

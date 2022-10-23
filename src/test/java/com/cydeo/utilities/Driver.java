@@ -104,6 +104,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
+//                    options.addArguments("--disable-notifications");
                     DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
                     capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     chromeOptions.merge(capabilitiesChrome);
