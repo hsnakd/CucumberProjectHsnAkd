@@ -95,6 +95,8 @@ public class Driver {
             switch (browserType.toLowerCase()){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--disable-notifications");
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -102,9 +104,10 @@ public class Driver {
 
                 case "chrome-incognito":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions chromeOptions = new ChromeOptions();
+//                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
-//                    options.addArguments("--disable-notifications");
+                    chromeOptions.addArguments("--disable-notifications");
                     DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
                     capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     chromeOptions.merge(capabilitiesChrome);
