@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {
-                // "pretty",            // basically it just prints out additional information about the scenario that is being executed.
+                 "pretty",            // basically it just prints out additional information about the scenario that is being executed.
                                         // used to print out additional information about the scenario currently executed
 
                 "html:target/cucumber-report.html",             // this generates default cucumber html report
@@ -48,7 +48,7 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "@evreka",
+        tags = "@AZLC-1537",
         // or / and / and not ==> "@Regression and not @librarian"
 
                         /**

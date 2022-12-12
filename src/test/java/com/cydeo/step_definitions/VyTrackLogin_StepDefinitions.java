@@ -1,7 +1,9 @@
 package com.cydeo.step_definitions;
 
-import com.cydeo.pages.*;
-import com.cydeo.utilities.*;
+import com.cydeo.pages.VyTrackDashboardPage;
+import com.cydeo.pages.VyTrackLoginPage;
+import com.cydeo.utilities.ConfigurationReader;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +17,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class VyTrackLogin_StepDefinitions {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl1"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
     }
 
     @When("user is on the second login page")
