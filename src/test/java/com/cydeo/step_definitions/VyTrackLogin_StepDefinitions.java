@@ -29,7 +29,7 @@ public class VyTrackLogin_StepDefinitions {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl1"));
     }
 
     @When("user is on the second login page")
