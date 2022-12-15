@@ -75,6 +75,11 @@ public class Driver {
              */
             String browserType;
 /**            browserType = ConfigurationReader.getProperty("browser");         */
+//            try{
+//
+//            }catch (FileNotFoundException e){
+//                e.printStackTrace();
+//            }
 
             if (System.getProperty("BROWSER") == null) {
                 if (ConfigurationReader.getProperty("environment").equalsIgnoreCase("null")) {

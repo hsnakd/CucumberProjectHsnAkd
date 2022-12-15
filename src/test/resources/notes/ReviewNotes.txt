@@ -40,8 +40,8 @@ Data Driven Testing: Testing functionality of the application using multiple set
 Jun 25th 2022
 How to run failed test cases again?
 1. Class Recordings:
-    - we use reun plugin to create rerun.txt file
-    - we use failedtestrunner class to run only those scenarios that are failed
+    - we use rerun plugin to create rerun.txt file
+    - we use FailedTestRunner class to run only those scenarios that are failed
 
 2. mvn commands
 mvn -Dsurefire.rerunFailingTestsCount=1 test
