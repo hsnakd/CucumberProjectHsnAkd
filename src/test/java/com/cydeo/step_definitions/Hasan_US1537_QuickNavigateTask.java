@@ -103,7 +103,7 @@ public class Hasan_US1537_QuickNavigateTask {
 //
 //        Assert.assertEquals(expectedSecondPeopleCheck, actualSecondPeopleCheck);
 
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitFor(10);
 
         Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
         Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
@@ -293,16 +293,16 @@ public class Hasan_US1537_QuickNavigateTask {
         BrowserUtils.waitForClickability(taskPage.timePlanningTask,10);
 
         taskPage.timePlanningTask.click();
-//        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(2);
 
         Driver.getDriver().switchTo().frame(2);
 
-        BrowserUtils.waitForVisibility(taskPage.checkStartTimePlanningAdded,20);
+        BrowserUtils.waitFor(3);
 
         String expectedText = "05/03/2023 09:00 am";
         String actualText = taskPage.checkStartTimePlanningAdded.getText();
-//        BrowserUtils.waitFor(5);
-
+        BrowserUtils.waitFor(5);
+        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
         Assert.assertEquals(expectedText, actualText);
     }
 
