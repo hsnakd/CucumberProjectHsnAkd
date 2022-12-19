@@ -48,8 +48,8 @@ import org.junit.runner.RunWith;
                                 - if false: turned off. and will execute the actual code (java-selenium-junit)
                         */
 
-        tags = "@AZLC-1544",
-        // or / and / and not ==> "@Regression and not @librarian"
+        tags = "@AZLC-1537",
+        // or / and / and not ==> "@Regression and not @smoke"
 
                         /**
                                 #tags:

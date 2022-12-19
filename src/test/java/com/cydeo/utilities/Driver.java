@@ -100,9 +100,32 @@ public class Driver {
 
             switch (browserType.toLowerCase()){
                 case "chrome":
+//                    ChromeOptions options = new ChromeOptions();
+//                    options.addArguments("--lang=en-GB");
+//                    WebDriverManager.chromedriver().setup();
+//                    driverPool.set(new ChromeDriver(options));
+//                    driverPool.get().manage().window().maximize();
+//                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//                    break;
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--disable-notifications");
+                    chromeOptions.addArguments("--lang=en-GB");
+
+//                    chromeOptions.addArguments("--lang= locale-of-choice");
+//                    chromeOptions.addArguments("headless");
+//                    chromeOptions.addArguments("no-sandbox");
+//                    chromeOptions.addArguments("window-size=1200x600");
+//                    chromeOptions.addArguments(
+//                            "--verbose",
+//                            "--headless",
+//                            "--disable-web-security",
+//                            "--ignore-certificate-errors",
+//                            "--allow-running-insecure-content",
+//                            "--allow-insecure-localhost",
+//                            "--no-sandbox",
+//                            "--disable-gpu"
+//                    );
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
