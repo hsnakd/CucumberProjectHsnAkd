@@ -101,8 +101,9 @@ public class Hasan_US1537_QuickNavigateTask {
 //        String expectedSecondPeopleCheck = "marketing98@cybertekschool.com";
 //        String actualSecondPeopleCheck = taskPage.addSecondPeopleCheck.getText();
 //
-//        BrowserUtils.waitFor(10);
 //        Assert.assertEquals(expectedSecondPeopleCheck, actualSecondPeopleCheck);
+
+        BrowserUtils.waitFor(5);
 
         Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
         Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
