@@ -76,9 +76,9 @@ public class Hasan_US1537_QuickNavigateTask {
 
     @Then("Verify if the task is high priority")
     public void verify_if_the_task_is_high_priority() {
-//        BrowserUtils.waitFor(5);
 
         taskPage.taskName.click();
+        BrowserUtils.waitFor(5);
         Driver.getDriver().switchTo().frame(2);
         BrowserUtils.waitFor(10);
 //        System.out.println("taskPage.highPriorityCheck.getAttribute(\"data-priority\") = " + taskPage.highPriorityCheck.getAttribute("data-priority"));
@@ -90,22 +90,14 @@ public class Hasan_US1537_QuickNavigateTask {
     public void verify_the_task_is_assigned_more_than_one_user() {
         taskPage.taskName.click();
 
-//        BrowserUtils.waitFor(10);
+        BrowserUtils.waitFor(5);
 
         Driver.getDriver().switchTo().frame(2);
-//        BrowserUtils.waitFor(10);
-//
-//        String expectedPeopleCheck = "helpdesk100@cybertekschool.com";
-//        String actualPeopleCheck = taskPage.addPeopleCheck.getText();
-//
-//        String expectedSecondPeopleCheck = "marketing98@cybertekschool.com";
-//        String actualSecondPeopleCheck = taskPage.addSecondPeopleCheck.getText();
-//
-//        Assert.assertEquals(expectedSecondPeopleCheck, actualSecondPeopleCheck);
 
         BrowserUtils.waitFor(10);
 
         Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
+        BrowserUtils.waitFor(10);
         Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
 
 //        BrowserUtils.waitFor(5);
@@ -293,16 +285,16 @@ public class Hasan_US1537_QuickNavigateTask {
         BrowserUtils.waitForClickability(taskPage.timePlanningTask,10);
 
         taskPage.timePlanningTask.click();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(5);
 
         Driver.getDriver().switchTo().frame(2);
 
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(5);
 
         String expectedText = "05/03/2023 09:00 am";
         String actualText = taskPage.checkStartTimePlanningAdded.getText();
         BrowserUtils.waitFor(5);
-        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
+//        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
         Assert.assertEquals(expectedText, actualText);
     }
 
