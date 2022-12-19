@@ -80,9 +80,9 @@ public class Hasan_US1537_QuickNavigateTask {
 
         taskPage.taskName.click();
         Driver.getDriver().switchTo().frame(2);
-//        BrowserUtils.waitFor(10);
+        BrowserUtils.waitFor(10);
+//        System.out.println("taskPage.highPriorityCheck.getAttribute(\"data-priority\") = " + taskPage.highPriorityCheck.getAttribute("data-priority"));
 
-//        Assert.assertEquals("High Priority", taskPage.highPriorityCheck.getText());
         Assert.assertEquals("2", taskPage.highPriorityCheck.getAttribute("data-priority"));
     }
 
