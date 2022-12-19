@@ -95,9 +95,9 @@ public class Hasan_US1537_QuickNavigateTask {
         Driver.getDriver().switchTo().frame(2);
 
         BrowserUtils.waitFor(20);
-        System.out.println("taskPage.addPeopleCheck.getText() = " + taskPage.addPeopleCheck.getText());
-
-        System.out.println("taskPage.addSecondPeopleCheck.getText() = " + taskPage.addSecondPeopleCheck.getText());
+//        System.out.println("taskPage.addPeopleCheck.getText() = " + taskPage.addPeopleCheck.getText());
+//
+//        System.out.println("taskPage.addSecondPeopleCheck.getText() = " + taskPage.addSecondPeopleCheck.getText());
 
         Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
         BrowserUtils.waitFor(20);
@@ -293,7 +293,7 @@ public class Hasan_US1537_QuickNavigateTask {
         Driver.getDriver().switchTo().frame(2);
 
         BrowserUtils.waitFor(20);
-        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
+//        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
         String expectedText = "05/03/2023 09:00 am";
         String actualText = taskPage.checkStartTimePlanningAdded.getText();
         BrowserUtils.waitFor(20);
