@@ -96,6 +96,7 @@ public class Hasan_US1537_QuickNavigateTask {
 
         BrowserUtils.waitFor(20);
         System.out.println("taskPage.addPeopleCheck.getText() = " + taskPage.addPeopleCheck.getText());
+
         System.out.println("taskPage.addSecondPeopleCheck.getText() = " + taskPage.addSecondPeopleCheck.getText());
 
         Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
