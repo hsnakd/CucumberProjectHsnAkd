@@ -35,17 +35,15 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "(//div[.='helpdesk100@cybertekschool.com'])[3]")
     public WebElement addPeople;
 
-    @FindBy(xpath = "(//div[@class='bx-finder-box-item-t7-name'])[1]")
-    public WebElement addPeople2;
+    @FindBy(xpath = "(//*[contains(@id, 'anchor_responsible')])[1]")
+    public WebElement addPeopleCheck;
 
     @FindBy(xpath = "(//div[.='marketing98@cybertekschool.com'])[3]")
     public WebElement addSecondPeople;
 
-    @FindBy(xpath = "(//*[contains(@id, 'anchor_responsible')])[1]")
-    public WebElement addPeopleCheck;
-
-    @FindBy(xpath = "(//*[contains(@id, 'anchor_responsible')])[2]")
+    @FindBy(xpath = "//*[normalize-space()='marketing98@cybertekschool.com']")
     public WebElement addSecondPeopleCheck;
+
 
     @FindBy(xpath = "//*[contains(@id, 'destDepartmentTab')]")
     public WebElement employeesAndDepartments;
@@ -105,8 +103,11 @@ public class Hasan_US1537_QuickNavigateTaskPage {
 //    @FindBy(xpath = "//a[@class='bx-calendar-cell'] [.='3']")
     public WebElement selectDay;
 
-    @FindBy(xpath = "")
-    public WebElement selectTime;
+    @FindBy(xpath = "(//input[@class='bx-calendar-form-input'])[1]")
+    public WebElement selectHour;
+
+    @FindBy(xpath = "(//input[@class='bx-calendar-form-input'])[2]")
+    public WebElement selectMinute;
 
     @FindBy(xpath = "//span[@class='bx-calendar-button-text']")
     public WebElement selectButton;
@@ -114,7 +115,7 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "//a[.='US-1537_TC-01']")
     public WebElement deadlineTask;
 
-    @FindBy(xpath = "//span[@id='task-detail-deadline']")
+    @FindBy(xpath = "//*[@id='task-detail-deadline']")
     public WebElement checkDeadline;
 
     @FindBy(xpath = "//span[.='Time planning']")
@@ -140,9 +141,6 @@ public class Hasan_US1537_QuickNavigateTaskPage {
 
     @FindBy(xpath = "//div[.='Start:']/following-sibling::div")
     public WebElement checkStartTimePlanningAdded;
-
-
-
 
     @FindBy(xpath = "//span[@class='menu-item-link-text']")
     public WebElement activityStream;

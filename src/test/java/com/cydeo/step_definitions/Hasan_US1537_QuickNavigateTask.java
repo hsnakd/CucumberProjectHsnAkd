@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 public class Hasan_US1537_QuickNavigateTask {
 
@@ -194,7 +195,12 @@ public class Hasan_US1537_QuickNavigateTask {
 
         taskPage.selectDay.click();
 
-//        taskPage.selectTime.click();
+        Actions actions = new Actions(Driver.getDriver());
+
+        actions.doubleClick(taskPage.selectHour).perform();
+        taskPage.selectHour.sendKeys("07");
+        taskPage.selectMinute.sendKeys("00");
+
 
         BrowserUtils.waitFor(2);
         taskPage.selectButton.click();
@@ -257,7 +263,8 @@ public class Hasan_US1537_QuickNavigateTask {
 
         taskPage.selectDay.click();
 
-//        taskPage.selectTime.click();
+        taskPage.selectHour.sendKeys("09");
+        taskPage.selectMinute.sendKeys("00");
 
 //        BrowserUtils.waitFor(2);
         taskPage.selectButton.click();
