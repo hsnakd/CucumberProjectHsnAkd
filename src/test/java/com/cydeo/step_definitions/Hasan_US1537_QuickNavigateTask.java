@@ -80,7 +80,7 @@ public class Hasan_US1537_QuickNavigateTask {
         taskPage.taskName.click();
         BrowserUtils.waitFor(5);
         Driver.getDriver().switchTo().frame(2);
-        BrowserUtils.waitFor(10);
+        BrowserUtils.waitFor(20);
 //        System.out.println("taskPage.highPriorityCheck.getAttribute(\"data-priority\") = " + taskPage.highPriorityCheck.getAttribute("data-priority"));
 
         Assert.assertEquals("2", taskPage.highPriorityCheck.getAttribute("data-priority"));
@@ -99,9 +99,9 @@ public class Hasan_US1537_QuickNavigateTask {
 //
 //        System.out.println("taskPage.addSecondPeopleCheck.getText() = " + taskPage.addSecondPeopleCheck.getText());
 
-        Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
+        Assert.assertTrue(taskPage.addPeopleCheck.isEnabled());
         BrowserUtils.waitFor(20);
-        Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
+        Assert.assertTrue(taskPage.addSecondPeopleCheck.isEnabled());
 
 //        BrowserUtils.waitFor(5);
 
@@ -213,11 +213,11 @@ public class Hasan_US1537_QuickNavigateTask {
 
         Driver.getDriver().switchTo().frame(0);
 
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitFor(20);
 
         String expectedText = "05/03/2023 07:00 pm";
         String actualText = taskPage.checkDeadline.getText();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(20);
 
         Assert.assertEquals(expectedText, actualText);
     }
