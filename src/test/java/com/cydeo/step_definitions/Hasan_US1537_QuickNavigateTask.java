@@ -226,7 +226,7 @@ public class Hasan_US1537_QuickNavigateTask {
 
     @And("Click Time Planning link")
     public void clickTimePlanningLink() {
-        Driver.getDriver().switchTo().parentFrame();
+//        Driver.getDriver().switchTo().parentFrame();
 //        BrowserUtils.waitFor(2);
         taskPage.timePlanning.click();
         BrowserUtils.waitFor(2);
