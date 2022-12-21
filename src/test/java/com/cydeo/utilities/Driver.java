@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -100,17 +101,10 @@ public class Driver {
 
             switch (browserType.toLowerCase()){
                 case "chrome":
-//                    ChromeOptions options = new ChromeOptions();
-//                    options.addArguments("--lang=en-GB");
-//                    WebDriverManager.chromedriver().setup();
-//                    driverPool.set(new ChromeDriver(options));
-//                    driverPool.get().manage().window().maximize();
-//                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//                    break;
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--disable-notifications");
                     chromeOptions.addArguments("--lang=en-GB");
+                    chromeOptions.addArguments("--disable-notifications");
 
 //                    chromeOptions.addArguments("--lang= locale-of-choice");
 //                    chromeOptions.addArguments("headless");
@@ -126,7 +120,19 @@ public class Driver {
 //                            "--no-sandbox",
 //                            "--disable-gpu"
 //                    );
-                    driverPool.set(new ChromeDriver());
+                    driverPool.set(new ChromeDriver(chromeOptions));
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+
+                case "chrome-locale":
+                    WebDriverManager.chromedriver().setup();
+                    chromeOptions = new ChromeOptions();
+                    Map<String, Object> prefs = new HashMap<>();
+                    chromeOptions.addArguments("--disable-notifications");
+                    prefs.put("intl.accept_languages", "en-GB");
+                    chromeOptions.setExperimentalOption("prefs", prefs);
+                    driverPool.set(new ChromeDriver(chromeOptions));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
@@ -137,6 +143,7 @@ public class Driver {
                     chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--incognito");  // ChromeOptions for starting chrome in incognito mode
                     chromeOptions.addArguments("--disable-notifications");
+                    chromeOptions.addArguments("--lang=en-GB");
                     DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
                     capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     chromeOptions.merge(capabilitiesChrome);
@@ -183,15 +190,22 @@ public class Driver {
                     break;
 
                 case "firefox":
+
                     WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
+
+                    FirefoxOptions optionsFirefox = new FirefoxOptions();
+                    FirefoxProfile firefoxProfile = new FirefoxProfile();
+                    optionsFirefox.setProfile(firefoxProfile);
+                    firefoxProfile.setPreference("intl.accept_languages", "en-GB");
+
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
 
                 case "firefox-private":
                     WebDriverManager.firefoxdriver().setup();
-                    FirefoxOptions optionsFirefox = new FirefoxOptions();
+                    optionsFirefox = new FirefoxOptions();
                     optionsFirefox.addArguments("-private");  // FirefoxOptions for starting firefox in incognito mode
                     DesiredCapabilities capabilitiesFirefox = new DesiredCapabilities();
                     capabilitiesFirefox.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsFirefox);
