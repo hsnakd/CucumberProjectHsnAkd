@@ -32,13 +32,13 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "(//a[contains(text(),'Add more')])[1]")
     public WebElement addMoreButton2;
 
-    @FindBy(xpath = "(//div[.='helpdesk100@cybertekschool.com'])[3]")
+    @FindBy(xpath = "(//div[text()='helpdesk100@cybertekschool.com'])[2]")
     public WebElement addPeople;
 
     @FindBy(xpath = "(//*[contains(@id, 'anchor_responsible')])[1]")
     public WebElement addPeopleCheck;
 
-    @FindBy(xpath = "(//div[.='marketing98@cybertekschool.com'])[3]")
+    @FindBy(xpath = "(//div[text()='marketing98@cybertekschool.com'])[2]")
     public WebElement addSecondPeople;
 
     @FindBy(xpath = "//*[normalize-space()='marketing98@cybertekschool.com']")
@@ -57,8 +57,11 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "//a[@title='Tasks']")
     public WebElement taskLeftSide;
 
-    @FindBy(xpath = "//div[@data-priority='2']")
+    @FindBy(id = "task-detail-important-button")
     public WebElement highPriorityCheck;
+
+    @FindBy(xpath = "//div[@data-priority='2']")
+    public WebElement highPriorityCheck1;
 
     @FindBy(xpath = "//div[@data-priority='2']")
     public WebElement highPriorityCheck2;
@@ -139,7 +142,7 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "//a[.='US-1537_TC-01']")
     public WebElement timePlanningTask;
 
-    @FindBy(xpath = "//div[.='Start:']/following-sibling::div")
+    @FindBy(xpath = "//*[@class='task-detail-sidebar-item-value'][normalize-space()='05/03/2023 12:00 pm']")
     public WebElement checkStartTimePlanningAdded;
 
     @FindBy(xpath = "//span[@class='menu-item-link-text']")

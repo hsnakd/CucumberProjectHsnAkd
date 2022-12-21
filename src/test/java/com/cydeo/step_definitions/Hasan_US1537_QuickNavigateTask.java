@@ -81,28 +81,28 @@ public class Hasan_US1537_QuickNavigateTask {
         taskPage.taskName.click();
         BrowserUtils.waitFor(5);
         Driver.getDriver().switchTo().frame(2);
-        BrowserUtils.waitFor(20);
+        BrowserUtils.waitFor(5);
 //        System.out.println("taskPage.highPriorityCheck.getAttribute(\"data-priority\") = " + taskPage.highPriorityCheck.getAttribute("data-priority"));
-
-        Assert.assertEquals("2", taskPage.highPriorityCheck.getAttribute("data-priority"));
+        System.out.println("taskPage.highPriorityCheck.getAttribute(\"class\") = " + taskPage.highPriorityCheck.getAttribute("class"));
+        Assert.assertEquals("task-info-panel-important  mutable", taskPage.highPriorityCheck.getAttribute("class"));
     }
 
     @Then("Verify the task is assigned more than one user")
     public void verify_the_task_is_assigned_more_than_one_user() {
         taskPage.taskName.click();
 
-        BrowserUtils.waitFor(20);
+        BrowserUtils.waitFor(10);
 
         Driver.getDriver().switchTo().frame(2);
 
-        BrowserUtils.waitFor(20);
+        BrowserUtils.waitFor(10);
 //        System.out.println("taskPage.addPeopleCheck.getText() = " + taskPage.addPeopleCheck.getText());
 //
 //        System.out.println("taskPage.addSecondPeopleCheck.getText() = " + taskPage.addSecondPeopleCheck.getText());
 
-        Assert.assertTrue(taskPage.addPeopleCheck.isEnabled());
-        BrowserUtils.waitFor(20);
-        Assert.assertTrue(taskPage.addSecondPeopleCheck.isEnabled());
+        Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
+        BrowserUtils.waitFor(10);
+        Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
 
 //        BrowserUtils.waitFor(5);
 
@@ -301,7 +301,7 @@ public class Hasan_US1537_QuickNavigateTask {
 
         BrowserUtils.waitFor(20);
 //        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
-        String expectedText = "05/03/2023 09:00 am";
+        String expectedText = "05/03/2023 12:00 pm";
         String actualText = taskPage.checkStartTimePlanningAdded.getText();
         BrowserUtils.waitFor(20);
 //        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
