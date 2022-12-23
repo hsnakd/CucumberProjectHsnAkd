@@ -12,8 +12,6 @@ public class Hasan_US1537_QuickNavigateTaskPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    String person1 = "helpdesk1@cybertekschool.com";
-
     @FindBy(xpath = "//span[.='Task']")
     public WebElement taskLink;
 
