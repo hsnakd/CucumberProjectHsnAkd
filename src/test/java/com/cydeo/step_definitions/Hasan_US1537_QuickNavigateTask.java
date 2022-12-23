@@ -35,7 +35,13 @@ public class Hasan_US1537_QuickNavigateTask {
 
     @When("Write a message in the message box")
     public void write_a_message_in_the_message_box() throws InterruptedException {
-        Driver.getDriver().switchTo().frame(1);
+
+        int frameNumber = BrowserUtils.switchToIFrameWithElement(taskPage.messageBox);
+
+        System.out.println("frameNumber= " + frameNumber);
+
+
+//        Driver.getDriver().switchTo().frame(1);
         taskPage.messageBox.sendKeys("To do list");
         Driver.getDriver().switchTo().parentFrame();
 
@@ -80,7 +86,13 @@ public class Hasan_US1537_QuickNavigateTask {
 
         taskPage.taskName.click();
         BrowserUtils.waitFor(2);
-        Driver.getDriver().switchTo().frame(2);
+
+        int frameNumber = BrowserUtils.switchToIFrameWithElement(taskPage.highPriorityCheck);
+
+        System.out.println("frameNumber= " + frameNumber);
+
+
+//        Driver.getDriver().switchTo().frame(2);
         BrowserUtils.waitFor(2);
 //        System.out.println("taskPage.highPriorityCheck.getAttribute(\"data-priority\") = " + taskPage.highPriorityCheck.getAttribute("data-priority"));
         System.out.println("taskPage.highPriorityCheck.getAttribute(\"class\") = " + taskPage.highPriorityCheck.getAttribute("class"));
@@ -93,15 +105,20 @@ public class Hasan_US1537_QuickNavigateTask {
 
         BrowserUtils.waitFor(1);
 
+        int frameNumber = BrowserUtils.switchToIFrameWithElement(taskPage.addPeopleCheck);
+
+        System.out.println("frameNumber= " + frameNumber);
 
 
-            Driver.getDriver().switchTo().frame(2);
-            BrowserUtils.waitFor(1);
-            System.out.println("taskPage.addPeopleCheck = " + taskPage.addPeopleCheck.getText());
+//        Driver.getDriver().switchTo().frame(2);
+        BrowserUtils.waitFor(1);
+//        System.out.println("taskPage.addPeopleCheck = " + taskPage.addPeopleCheck.getText());
 
-//            Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
-//            BrowserUtils.waitFor(10);
-//            Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
+        Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
+
+        int frameNumber2 = BrowserUtils.switchToIFrameWithElement(taskPage.addSecondPeopleCheck);
+        System.out.println("frameNumber2 = " + frameNumber2);
+        Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
 
 
 
@@ -162,6 +179,8 @@ public class Hasan_US1537_QuickNavigateTask {
         taskPage.checklistTask.click();
 //        BrowserUtils.waitFor(10);
 //        System.out.println("HSN");
+        
+
         Driver.getDriver().switchTo().frame(taskPage.checklistVerifyIframe);
 //        System.out.println("AKD");
 

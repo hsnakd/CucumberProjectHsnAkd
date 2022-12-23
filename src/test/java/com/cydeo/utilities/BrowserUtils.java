@@ -1,5 +1,6 @@
 package com.cydeo.utilities;
 
+import com.cydeo.pages.Hasan_US1537_QuickNavigateTaskPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -470,5 +471,81 @@ for given duration
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+/**
 
+*/
+
+    public static void iframe1() {
+        int size = Driver.getDriver().findElements(By.tagName("iframe")).size();
+
+        for(int i=0; i<=size; i++){
+            Driver.getDriver().switchTo().frame(i);
+            int total=Driver.getDriver().findElements(By.xpath("html/body/a/img")).size();
+            System.out.println(total);
+            Driver.getDriver().switchTo().defaultContent();
+        }
+    }
+
+    public static int iframe(By element) {
+        Hasan_US1537_QuickNavigateTaskPage taskPage = new Hasan_US1537_QuickNavigateTaskPage();
+
+        int size =  Driver.getDriver().findElements(By.tagName("iframe")).size();
+        System.out.println("size = " + size);
+        int i=0;
+        int frameNumber=0;
+
+        try {
+            for( i=0; i<=size-1; i++){
+                Driver.getDriver().switchTo().frame(i);
+                if ( (taskPage.addPeopleCheck.isDisplayed()) ) {
+                    System.out.println("iframe number : "  + " " + i);
+                    frameNumber=i;
+                }
+
+                Driver.getDriver().switchTo().defaultContent();
+            }
+        } catch (NoSuchElementException | StaleElementReferenceException | ElementNotInteractableException ignored) {
+        return frameNumber;
+        }
+
+
+
+return i;
+
+    }
+
+    public static int switchToIFrameWithElement(WebElement element) {
+
+        Driver.getDriver().switchTo().defaultContent();
+        int size = Driver.getDriver().findElements(By.tagName("iframe")).size();
+        System.out.println("size = " + size);
+        int frameNumber=0;
+        try {
+            if (element.isDisplayed()) {
+//                System.out.println("Element is displayed on main page");
+            }
+        } catch (Exception continueFlow) {
+//            List<WebElement> frames = Driver.getDriver().findElements(By.cssSelector("iframe"));
+
+            for ( int i=0; i<=size-1; i++) {
+                Driver.getDriver().switchTo().defaultContent();
+//                System.out.println("going back to main page" + frameNumber );
+                frameNumber=i;
+                try {
+                    Driver.getDriver().switchTo().frame(i);
+//                    System.out.println("switched to next frame: " + frameNumber);
+                    if (element.isDisplayed()) {
+                        frameNumber=i;
+//                        System.out.println("element is found in frame: " + frameNumber);
+                        break;
+                    }
+                } catch (NoSuchElementException | StaleElementReferenceException | ElementNotInteractableException ignored) {
+                }
+            }
+        }
+//        System.out.println("returned element succesfully");
+        return frameNumber;
+    }
 }
+
+
