@@ -140,7 +140,7 @@ public class Hasan_US1537_QuickNavigateTaskPage {
     @FindBy(xpath = "//a[.='US-1537_TC-01']")
     public WebElement timePlanningTask;
 
-    @FindBy(xpath = "//*[@class='task-detail-sidebar-item-value'][normalize-space()='05/03/2023 12:00 pm']")
+    @FindBy(xpath = "//*[text()='05/03/2023 09:00 am']")
     public WebElement checkStartTimePlanningAdded;
 
     @FindBy(xpath = "//span[@class='menu-item-link-text']")
