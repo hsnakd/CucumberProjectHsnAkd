@@ -201,11 +201,11 @@ public class Hasan_US1537_QuickNavigateTask {
 
         Driver.getDriver().switchTo().frame(0);
 
-        BrowserUtils.waitFor(20);
+        BrowserUtils.waitFor(5);
 
         String expectedText = "05/03/2023 07:00 pm";
         String actualText = taskPage.checkDeadline.getText();
-        BrowserUtils.waitFor(20);
+        BrowserUtils.waitFor(5);
 
         Assert.assertEquals(expectedText, actualText);
     }
