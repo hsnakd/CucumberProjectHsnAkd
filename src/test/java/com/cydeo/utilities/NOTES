@@ -1,0 +1,56 @@
+
+How do you decide which test will be automated?
+    - make sure functionality is working
+    - is it a repeating scenario
+    - is it high priority scenario (business decision)
+    - is it complex scenario and also repeating
+    - do not automate flaky (unstable) tests.
+
+What are the steps while you are writing your test scenario?
+Can you give an example how you test in manual?
+What is the difference between Test NG and JUnit? Can you give an example about annotations?
+Why do you prefer Junit as a company? Not Test NG?
+
+How do you use the OOP Concept in your framework?
+    Encapsulation: Driver
+        - make private WebDriver
+        - create getter
+    Polymorphism: WebDriver --> ChromeDriver
+    - Inheritance/Abstract
+        - TestBase
+        - BasePage
+
+How do you locate dropdowns?
+How do you handle pop ups?
+How do you locate your dynamic web elements?
+How do you use javascript in your framework?
+How do you use Java while you are writing test scenarios?
+What is the difference between keyword driven and data driven testing?
+
+Can you explain how you set up parallel testing?
+#1
+#2
+
+What is the differences between @findby and pageFactory?
+
+What is the main goal of the Singleton Design pattern?
+
+Can you explain the mentality of the POM?
+
+Which version of Selenium do you use?
+    selenium version 3.141.59
+
+How do you use single slash (/) while you are finding locators?
+
+What is the difference between CSS and Xpath?
+
+How do you prioritise your scenarios?
+
+How do you run your failed runner/tests?
+
+How do you use external data? Can you explain step by step?
+    - configuration.properties --> ConfigurationReader
+    - Feature files : Scenario Outlines
+    - EXCEL : using APACHE POI
+
+Can you explain BDD steps?

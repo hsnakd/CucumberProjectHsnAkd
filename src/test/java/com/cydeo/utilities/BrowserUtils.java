@@ -495,7 +495,7 @@ for given duration
         int frameNumber=0;
 
         try {
-            for( i=0; i<=size-1; i++){
+            for( i=0; i<size; i++){
                 Driver.getDriver().switchTo().frame(i);
                 if ( (taskPage.addPeopleCheck.isDisplayed()) ) {
                     System.out.println("iframe number : "  + " " + i);
@@ -508,9 +508,7 @@ for given duration
         return frameNumber;
         }
 
-
-
-return i;
+        return i;
 
     }
 
@@ -527,7 +525,7 @@ return i;
         } catch (Exception continueFlow) {
 //            List<WebElement> frames = Driver.getDriver().findElements(By.cssSelector("iframe"));
 
-            for ( int i=0; i<=size-1; i++) {
+            for ( int i=0; i<size; i++) {
                 Driver.getDriver().switchTo().defaultContent();
 //                System.out.println("going back to main page" + frameNumber );
                 frameNumber=i;

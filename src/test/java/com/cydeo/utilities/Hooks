@@ -1,0 +1,3 @@
+#5- Hooks:
+    - Hooks are used to create pre- and post- condition for ALL scenarios in our project.
+    - Since Hooks effect the whole project, we should be very selective on what to put in the hooks.

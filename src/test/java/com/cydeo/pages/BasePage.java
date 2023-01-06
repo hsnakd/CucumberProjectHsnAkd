@@ -27,5 +27,9 @@ public class BasePage {
     public WebElement logoutButton;
 
 
+    @FindBy(xpath = "html/body/a/img")
+    public WebElement img;
+
+
 
 }

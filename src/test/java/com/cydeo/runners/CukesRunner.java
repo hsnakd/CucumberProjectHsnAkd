@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                  "pretty",            // basically it just prints out additional information about the scenario that is being executed.
-                                        // used to print out additional information about the scenario currently executed
+                                      // used to print out additional information about the scenario currently executed
 
                 "html:target/cucumber-report.html",             // this generates default cucumber html report
                 "rerun:target/rerun.txt",                       // this generates rerun.txt for keep tracking of failed tests
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
                 "junit:target/junit/junit-report.xml",          //
         },
                         /**
-                                #pluginS :
+                            #pluginS :
                                 - inside of the plugin, we determine
                                 - the type of the reportS
                                 - where do we want to store our reportS
@@ -53,7 +53,7 @@ import org.junit.runner.RunWith;
         // or / and / and not ==> "@Regression and not @smoke"
 
                         /**
-                                #tags:
+                            #tags:
                                 - we can create different scenario suites where we can include or exclude different scenarios.
 
                                 - or, and, and not.

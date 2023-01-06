@@ -23,6 +23,29 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
+//  How do we change our Driver to handle multi-threads?
+//      #1- Driver.getDriver() method name stays same.
+//      #2- We wrap our "driver" instance with InheritableThreadLocal
+//
+//          private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+//
+//      #3- Now that we are using "InheritableThreadLocal", we adjust our code in .getDriver() method to use methods coming from "InheritableThreadLocal"
+//
+//      Instead of using : "driver" we use "driverPool.get()"
+//      Instead of using : driver = new ChromeDriver(); we use --> driverPool.set(new ChromeDriver());
+//      Instead of using : driver == null --> driverPool.remove();
+//
+//      - We didn't touch the Singleton Design Pattern logic we previously created.
+//
+//          if(driver == null){
+//              create new
+//          }
+//
+//          return driver;
+//
+//      - We still have Singleton Design Pattern.
+//      - Even if we run our features in parallel, every thread using WebDriver instance will be Singleton in itself.
+
 
     public static WebDriver environmentMethod(String environment){
 //        Change environment within maven command for test execution
@@ -158,8 +181,8 @@ public class Driver {
 
                 case "remote-chrome":
                     try {
-                        // assign your grid server address : 54.235.53.73. ==> 54.89.242.106  ==> 184.72.110.69
-                        String gridAddress = "3.82.116.209"; // put your own Linux grid IP here
+                        // assign your grid server address : 54.235.53.73. ==> 54.89.242.106  ==> 184.72.110.69 "3.82.116.209"
+                        String gridAddress = "3.86.220.209"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
@@ -218,7 +241,7 @@ public class Driver {
                 case "remote-firefox":
                     try {
                         // assign your grid server address : 54.89.242.106
-                        String gridAddress = "33.82.116.209"; // put your own Linux grid IP here
+                        String gridAddress = "33.86.220.209"; // put your own Linux grid IP here
                         URL url = new URL("http://"+gridAddress+":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("firefox");
