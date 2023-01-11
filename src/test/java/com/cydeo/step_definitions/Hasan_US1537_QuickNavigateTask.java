@@ -81,39 +81,61 @@ public class Hasan_US1537_QuickNavigateTask {
     public void verify_if_the_task_is_high_priority() {
 
         taskPage.taskName.click();
-        BrowserUtils.waitFor(2);
+        //Find the iframe number:
+        int iframeNum = 5;
+        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("frameList.size() = " + frameList.size());
 
-//        int frameNumber = BrowserUtils.switchToIFrameWithElement(taskPage.highPriorityCheck);
-//        System.out.println("frameNumber= " + frameNumber);
+        List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("iframes.size() = " + iframes.size());
+        for (int i=0; i<iframes.size(); i++){
+            // Switch to each frame
+            Driver.getDriver().switchTo().frame(i);
+            // Check for the web element
+            List<WebElement> elements = Driver.getDriver().findElements(By.id("task-detail-important-button"));
+            if (elements.size() > 0){
+                iframeNum = i;
+                System.out.println("iframeNum = " + iframeNum);
+                Assert.assertEquals("task-info-panel-important  mutable", taskPage.highPriorityCheck.getAttribute("class"));
+            }
 
+            // Switch back to the main page
+            Driver.getDriver().switchTo().defaultContent();
 
-        Driver.getDriver().switchTo().frame(2);
-        BrowserUtils.waitFor(2);
+        }
 //        System.out.println("taskPage.highPriorityCheck.getAttribute(\"class\") = " + taskPage.highPriorityCheck.getAttribute("class"));
-        Assert.assertEquals("task-info-panel-important  mutable", taskPage.highPriorityCheck.getAttribute("class"));
     }
 
     @Then("Verify the task is assigned more than one user")
     public void verify_the_task_is_assigned_more_than_one_user() {
+
         taskPage.taskName.click();
 
-        BrowserUtils.waitFor(1);
+        //Find the iframe number:
+        int iframeNum = 5;
+        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("frameList.size() = " + frameList.size());
 
-//        int frameNumber = BrowserUtils.switchToIFrameWithElement(taskPage.addPeopleCheck);
-//        System.out.println("frameNumber= " + frameNumber);
+        List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("iframes.size() = " + iframes.size());
+        for (int i=0; i<iframes.size(); i++){
+            // Switch to each frame
+            Driver.getDriver().switchTo().frame(i);
+            // Check for the web element
+            List<WebElement> elements1 = Driver.getDriver().findElements(By.xpath("(//*[contains(@id, 'anchor_responsible')])[1]"));
+            List<WebElement> elements2 = Driver.getDriver().findElements(By.xpath("//*[normalize-space()='marketing98@cybertekschool.com']"));
+            if ((elements1.size() > 0) && (elements2.size() > 0)){
+                iframeNum = i;
+                System.out.println("iframeNum = " + iframeNum);
+                Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
+                Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
+            }
 
+            // Switch back to the main page
+            Driver.getDriver().switchTo().defaultContent();
 
-        Driver.getDriver().switchTo().frame(2);
-        BrowserUtils.waitFor(1);
-//        System.out.println("taskPage.addPeopleCheck = " + taskPage.addPeopleCheck.getText());
-
-        Assert.assertTrue(taskPage.addPeopleCheck.isDisplayed());
-
-//        int frameNumber2 = BrowserUtils.switchToIFrameWithElement(taskPage.addSecondPeopleCheck);
-//        System.out.println("frameNumber2 = " + frameNumber2);
-        Assert.assertTrue(taskPage.addSecondPeopleCheck.isDisplayed());
+        }
     }
-
 
     @And("Check task number")
     public void checkTaskNumber() {
@@ -221,28 +243,33 @@ public class Hasan_US1537_QuickNavigateTask {
         BrowserUtils.waitForClickability(taskPage.deadlineTask,20);
         taskPage.deadlineTask.click();
 
+        //Find the iframe number:
+        int iframeNum = 0;
         List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
-        System.out.println(frameList.size());
-        if (frameList.size() == 2) {
-            Driver.getDriver().switchTo().frame(1);
-        } else {
-        for(int i =0; i<frameList.size(); i++){
-            Driver.getDriver().switchTo().frame(i);
-            System.out.println(i);
-            try{
-                String actualText = taskPage.checkDeadline.getText();
-                System.out.println("iframe : " + i );
-                System.out.println(actualText);
+        System.out.println("frameList.size() = " + frameList.size());
 
-//                String expectedText = "05/03/2023 07:00 pm";
-//                BrowserUtils.waitFor(5);
-//                Assert.assertEquals(expectedText, actualText);
+        List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("iframes.size() = " + iframes.size());
+        for (int i=0; i<iframes.size(); i++){
+            // Switch to each frame
+            Driver.getDriver().switchTo().frame(i);
+            // Check for the web element
+            List<WebElement> elements = Driver.getDriver().findElements(By.id("task-detail-deadline"));
+            if (elements.size() > 0){
+                iframeNum = i;
+                System.out.println("iframeNum = " + iframeNum);
+
+                String expectedText = "05/03/2023 07:00 pm";
+                String actualText = taskPage.checkDeadline.getText();
+
+                Assert.assertEquals(expectedText, actualText);
+
             }
-            catch (Exception e){
-                System.out.println("Element not found");
-            }
+            // Switch back to the main page
+            Driver.getDriver().switchTo().defaultContent();
+
         }
-        }
+
     }
 
     @And("Click Time Planning link")
@@ -309,21 +336,35 @@ public class Hasan_US1537_QuickNavigateTask {
     @Then("Verify that while creating a task time planning is added")
     public void verifyThatWhileCreatingATaskTimePlanningIsAdded() {
 
-        BrowserUtils.waitForClickability(taskPage.timePlanningTask,10);
-
         taskPage.timePlanningTask.click();
-        BrowserUtils.waitFor(5);
-//        int frameNumber2 = BrowserUtils.switchToIFrameWithElement(taskPage.checkStartTimePlanningAdded);
-//        System.out.println("frameNumber2 = " + frameNumber2);
-        Driver.getDriver().switchTo().frame(2);
 
-        BrowserUtils.waitFor(2);
-//        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
-        String expectedText = "05/03/2023 09:00 am";
-        String actualText = taskPage.checkStartTimePlanningAdded.getText();
-        BrowserUtils.waitFor(2);
-//        System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
-        Assert.assertEquals(expectedText, actualText);
+        //Find the iframe number:
+        int iframeNum = 5;
+        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("frameList.size() = " + frameList.size());
+
+        List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println("iframes.size() = " + iframes.size());
+        for (int i=0; i<iframes.size(); i++){
+            // Switch to each frame
+            Driver.getDriver().switchTo().frame(i);
+            // Check for the web element
+            List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//*[text()='05/03/2023 09:00 am']"));
+            if (elements.size() > 0){
+                iframeNum = i;
+                System.out.println("iframeNum = " + iframeNum);
+
+                String expectedText = "05/03/2023 09:00 am";
+                String actualText = taskPage.checkStartTimePlanningAdded.getText();
+                System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
+                Assert.assertEquals(expectedText, actualText);
+
+            }
+            // Switch back to the main page
+            Driver.getDriver().switchTo().defaultContent();
+
+        }
+
     }
 
 
