@@ -339,7 +339,7 @@ public class Hasan_US1537_QuickNavigateTask {
         taskPage.timePlanningTask.click();
 
         //Find the iframe number:
-        int iframeNum = 5;
+        int iframeNum = 0;
         List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
         System.out.println("frameList.size() = " + frameList.size());
 
