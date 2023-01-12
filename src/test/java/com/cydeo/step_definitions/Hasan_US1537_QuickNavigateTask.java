@@ -83,8 +83,6 @@ public class Hasan_US1537_QuickNavigateTask {
         taskPage.taskName.click();
         //Find the iframe number:
         int iframeNum = 5;
-        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
-        System.out.println("frameList.size() = " + frameList.size());
 
         List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
         System.out.println("iframes.size() = " + iframes.size());
@@ -113,8 +111,6 @@ public class Hasan_US1537_QuickNavigateTask {
 
         //Find the iframe number:
         int iframeNum = 5;
-        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
-        System.out.println("frameList.size() = " + frameList.size());
 
         List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
         System.out.println("iframes.size() = " + iframes.size());
@@ -188,6 +184,7 @@ public class Hasan_US1537_QuickNavigateTask {
 
     @And("Add a deadline")
     public void addADeadline() {
+        BrowserUtils.waitForClickability(taskPage.deadlineAdd,10);
 
         taskPage.deadlineAdd.click();
 
@@ -245,8 +242,6 @@ public class Hasan_US1537_QuickNavigateTask {
 
         //Find the iframe number:
         int iframeNum = 0;
-        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
-        System.out.println("frameList.size() = " + frameList.size());
 
         List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
         System.out.println("iframes.size() = " + iframes.size());
@@ -263,7 +258,6 @@ public class Hasan_US1537_QuickNavigateTask {
                 String actualText = taskPage.checkDeadline.getText();
 
                 Assert.assertEquals(expectedText, actualText);
-
             }
             // Switch back to the main page
             Driver.getDriver().switchTo().defaultContent();
@@ -340,8 +334,6 @@ public class Hasan_US1537_QuickNavigateTask {
 
         //Find the iframe number:
         int iframeNum = 0;
-        List<WebElement> frameList = Driver.getDriver().findElements(By.tagName("iframe"));
-        System.out.println("frameList.size() = " + frameList.size());
 
         List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
         System.out.println("iframes.size() = " + iframes.size());

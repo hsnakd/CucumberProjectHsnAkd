@@ -5,21 +5,12 @@ In the class we will be able to pass pre- & post- conditions to
  each scenario and each step
  */
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.IOException;
 
 public class Hooks {
 
@@ -45,39 +36,6 @@ public class Hooks {
         System.out.println("====this will only apply to scenarios with @db tag");
     }
 
-    protected WebDriver driver;
-    protected Actions actions;
-    protected WebDriverWait wait;
-    protected ExtentReports report;
-    protected ExtentHtmlReporter htmlReporter;
-    protected ExtentTest extentLogger;
-    @Before
-    public void setUpTest() throws IOException {
-        //initialize the class
-        report = new ExtentReports();
-
-        //create a report path
-        String projectPath = System.getProperty("user.dir");
-        String path = projectPath + "/test-output/report.html";
-
-        //initialize the html reporter with the report path
-        htmlReporter = new ExtentHtmlReporter(path);
-
-        //attach the html report to report object
-        report.attachReporter(htmlReporter);
-
-        //title in report
-        htmlReporter.config().setReportName("micro Smoke Test");
-
-        //set environment information
-        report.setSystemInfo("Environment","QA");
-        report.setSystemInfo("Browser", ConfigurationReader.getProperty("browser"));
-        report.setSystemInfo("OS",System.getProperty("os.name"));
-        report.setSystemInfo("Tester","ibrahim uçar");
-        extentLogger = report.createTest("Micro Task");
-
-    }
-
 
     @After
     public void teardownScenario(Scenario scenario){
@@ -100,16 +58,25 @@ public class Hooks {
         //System.out.println("====Scenario ended/ Take screenshot if failed!");
     }
 
-   // @BeforeStep
+
+//    @After
+    public void screenshot(Scenario scenario){
+        byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", scenario.getName());
+
+        //BrowserUtils.sleep(5);
+        Driver.closeDriver();
+    }
+
+//    @BeforeStep
     public void setupStep(){
         System.out.println("--------> applying setup using @BeforeStep");
     }
 
-    //@AfterStep
+//    @AfterStep
     public void afterStep(){
         System.out.println("--------> applying tearDown using @AfterStep");
     }
-
 
 
 }
