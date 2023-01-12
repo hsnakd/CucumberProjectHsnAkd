@@ -356,7 +356,7 @@ public class Hasan_US1537_QuickNavigateTask {
 
                 String expectedText = "05/03/2023 09:00 am";
                 String actualText = taskPage.checkStartTimePlanningAdded.getText();
-                System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
+//                System.out.println("taskPage.checkStartTimePlanningAdded.getText() = " + taskPage.checkStartTimePlanningAdded.getText());
                 Assert.assertEquals(expectedText, actualText);
 
             }
