@@ -263,7 +263,7 @@ public class Hasan_US1537_QuickNavigateTask {
                 String actualText = taskPage.checkDeadline.getText();
 
                 Assert.assertEquals(expectedText, actualText);
-
+                BrowserUtils.screenshot("Verify","DeadlineVerified" );
             }
             // Switch back to the main page
             Driver.getDriver().switchTo().defaultContent();

@@ -1,5 +1,6 @@
 package com.cydeo.utilities;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.cydeo.pages.Hasan_US1537_QuickNavigateTaskPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -543,6 +544,19 @@ for given duration
         }
 //        System.out.println("returned element succesfully");
         return frameNumber;
+    }
+
+    public static String captureScreenShot(){
+        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+        String basecode64 = takesScreenshot.getScreenshotAs(OutputType.BASE64);
+        return basecode64;
+    }
+    protected static ExtentReports report;
+
+    public static void screenshot(String stepName, String message) {
+    String name = captureScreenShot();
+    report.createTest(stepName).pass(message).addScreenCaptureFromBase64String(name);
+
     }
 }
 
