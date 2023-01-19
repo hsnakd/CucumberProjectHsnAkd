@@ -59,7 +59,7 @@ public class Hooks {
 
 
 //    @After
-    public void screenshot(Scenario scenario){
+    public void afterTakesScreenshot(Scenario scenario){
         byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", scenario.getName());
 
@@ -78,7 +78,7 @@ public class Hooks {
     }
 
 //    @AfterStep
-    public void afterStep(Scenario scenario) {
+    public void afterStepTakesScreenshot(Scenario scenario) {
         byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", scenario.getName());
     }

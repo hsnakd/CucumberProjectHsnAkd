@@ -1,6 +1,6 @@
 package com.cydeo.step_definitions;
 
-import com.cydeo.pages.Hasan_US1537_QuickNavigateTaskPage;
+import com.cydeo.pages.CrmProjectTask_Page;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -13,9 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-public class Hasan_US1537_QuickNavigateTask {
+public class CrmProjectTask_SD {
 
-    Hasan_US1537_QuickNavigateTaskPage taskPage = new Hasan_US1537_QuickNavigateTaskPage();
+    CrmProjectTask_Page taskPage = new CrmProjectTask_Page();
     String taskName = "US-1537_TC-01";
     String thingsToDo = "US-1537 TC-04 Things To Do";
     int countBefore;

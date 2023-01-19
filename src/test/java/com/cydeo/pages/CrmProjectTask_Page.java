@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class Hasan_US1537_QuickNavigateTaskPage {
+public class CrmProjectTask_Page {
 
-    public Hasan_US1537_QuickNavigateTaskPage(){
+    public CrmProjectTask_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

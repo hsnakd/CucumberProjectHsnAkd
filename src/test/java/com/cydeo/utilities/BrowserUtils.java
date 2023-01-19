@@ -1,6 +1,6 @@
 package com.cydeo.utilities;
 
-import com.cydeo.pages.Hasan_US1537_QuickNavigateTaskPage;
+import com.cydeo.pages.CrmProjectTask_Page;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -487,7 +487,7 @@ for given duration
     }
 
     public static int iframe(By element) {
-        Hasan_US1537_QuickNavigateTaskPage taskPage = new Hasan_US1537_QuickNavigateTaskPage();
+        CrmProjectTask_Page taskPage = new CrmProjectTask_Page();
 
         int size =  Driver.getDriver().findElements(By.tagName("iframe")).size();
         System.out.println("size = " + size);
